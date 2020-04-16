@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>HoneyMint</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </head>
+  <body style="background-color: Black;">
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="margin-top:10px;">
+  <a class="navbar-brand" href="{% url 'home' %}">HoneyMint</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'myapp:ranklist' %}">Rank List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}">Who am i?</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav mr-right">
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'myapp:logout' %}">LogOut</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'myapp:login' %}">LogIn</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'myapp:sign' %}">SignUp</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+{% block body %}
+<div class="container jumbotron" style="margin-top:100px;">
+      {% if user.is_authenticated %}
+      <h3>Welcome..</h3>
+      <p>{{ user.first_name }} Your current score is {{ user.result.point }}. For assurance of your win share your link to friend or tell them to signup using your Username.
+
+
+
+
+
+
+      {% else %}
+
+      <h2>Welcome to HoneyMint</h2>
+      <p>We are going to launch our new product.On the opening of our product we are organizing a competition.
+        You have to SignUp first and ask your friends to do same.
+        Your no of referal count will help to win.
+        Go and SignUp now and invite your friends to SignUp using your referal Code.
+
+
+
+      {% endif %}
+</div>
+
+
+
+
+
+  {% if not user.is_authenticated %}
+  <div class="container jumbotron">
+  <h3>Scenario-</h3>
+  A client approached us to create a social media campaign for the launch of their new talcum powder. Let’s call the drink “Honeymint”. The client also advised they are on a limited budget.
+  The creatives met up with the client and came up with an idea.
+  The idea is to build a simple competition webpage within the client’s website that encourages people to spread the news about the new product. Users arrive at the page and sign up a form. After a successful sign up, they get one entry for the competition. At that point, they also have an option to share the sign up link. Every successful sign up referred via the link will give extra competition entries to the original link poster. There is no limit to the number of entries that a person can enter. So the idea is: The more entries you have, the higher your chance to win the prize.
+  The prize is 100 bottles of Honeymint.
+  The top 10 persons with the most entries will win the prize.
+  Requirements:
+  <ul>
+  <li>	The new webpage is to be launched 3 months from today.
+  <li>The duration of the competition will be 1 month from the day it is launched. After that, the webpage will be removed.
+  <li>The webpage will consist of text, graphical elements and a sign up form.
+  <li>The sign up form will consist of the following compulsory fields: First name, Last name, Mobile Number and Email Address.
+  <li>When the form is submitted, the user will receive an EDM (Electronic Direct Mail) with an option to post a special link to the competition page from his/her Facebook or twitter account.
+  <li>When people arrive to the competition page via the special link and signs up the form. The original poster will get one more extra entry for the competition.
+  <li>After the competition has expired, provide a list of winners to the client.
+  </ul>
+</div>
+  {% endif %}
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+  </body>
+</html>

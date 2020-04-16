@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+{% load bootstrap3 %}
+
+
+
+
+{% block body %}
+
+<div class="jumbotron container" style="margin-top:100px;"">
+
+
+
+
+  <ul class="list-group" style="font-family: 'Josefin Sans', sans-serif;">
+      <li><h1 style="margin-left:12em;">Rank List</h1></li>
+  </ul>
+
+    <table  border="1" style="padding: 15px; border-spacing: 5px;font-family: 'Abel', sans-serif;" class="table table-hover">
+                      <tr style="text-align:center;">
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Points</th>
+
+                      </tr>
+
+                      {% for i in data %}
+                      <tr style="text-align:center;">
+                        <td>{{ i.refer_by.first_name }} {{ i.refer_by.last_name }}</td>
+                        <td>{{ i.refer_by.email }}</td>
+                        <td>{{  i.point }}</td>
+
+                      </tr>
+
+                      {% endfor %}
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+{% endblock %}

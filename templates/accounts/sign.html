@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% load bootstrap3 %}
+
+
+
+
+{% block body %}
+
+
+
+<div class="container jumbotron" style="margin-top:100px;" >
+
+
+<a href="{% url 'myapp:refer' %}" role="button" class="btn btn-primary" style="margin-left:250px;">With Referal Code</a>
+<a href="{% url 'myapp:signup' %}" role="button" class="btn btn-primary" style="margin-left:250px;">Without Referal Code</a>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% load bootstrap3 %}
+
+
+
+
+{% block body %}
+
+
+<div class="container jumbotron" style="margin-top:100px;max-width: 540px;" >
+
+
+
+  <h1 style="font-family:'Montserrat';text-align:center;">Put Your Code</h1>
+
+  <form method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% if da %}
+    <h6>{{ da }}</h6>
+    {% endif %}
+    <input type="submit" class="btn btn-primary" value="Enter" style="margin-left:200px;">
+  </form>
+
+</div>
+
+
+
+
+{% endblock %}
