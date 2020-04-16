@@ -25,7 +25,7 @@ SECRET_KEY = '$f(=)ik&orcm#uiur=6aa6s)-!h7=z)f9(otl#az0+do&ftk6m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*",]
 
 
 # Application definition
