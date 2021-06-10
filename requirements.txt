@@ -8,7 +8,7 @@ chardet==3.0.4
 configparser==4.0.2
 cryptography==2.8
 cycler==0.10.0
-Django==2.2.1
+Django==2.2.24
 django-bootstrap3==11.1.0
 django-bootstrap4==1.0.1
 django-braces==1.13.0
